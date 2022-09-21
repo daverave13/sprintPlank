@@ -7,6 +7,7 @@ const Container = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-around",
   flexWrap: "wrap",
+
 }));
 
 const Day = styled(Card)(({ theme }) => ({
@@ -85,7 +86,7 @@ const Forecast = (props) => {
       {data.length > 0 ? (
         data.slice(1, 6).map((period, index) => {
           return (
-            <Day sx={{ marginTop: "2rem" }} key={index}>
+            <Day sx={{ marginTop: "1rem" }} key={index}>
               <Box
                 sx={{
                   color: "white",

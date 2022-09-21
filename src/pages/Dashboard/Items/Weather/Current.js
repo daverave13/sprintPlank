@@ -19,6 +19,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-around",
+  margin: '0 10px'
 }));
 
 const CurrentDataPoints = styled(Box)(({ theme }) => ({
@@ -156,7 +157,7 @@ const Current = (props) => {
             )}
           </Box>
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "row" }}>
+        <Box sx={{ display: "flex", flexDirection: "row", padding: '15px 0'}}>
           {props.data.properties.periods.slice(0, 2).map((period, index) => {
             return (
               <Box key={index} sx={{ color: "white", padding: "0 2rem" }}>

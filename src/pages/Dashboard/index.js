@@ -40,12 +40,9 @@ const Dashboard = () => {
   return (
     <Grid
       container
-      spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 4, sm: 8, md: 12 }}
-      justifyContent='center'
-      sx={{ paddingTop: "10vh" }}
+      columns={{ xs: 12 }}
     >
-      <Grid item xs={10}>
+      <Grid item xs={12} sx={{display: 'flex', justifyContent: 'center', paddingTop: '15vh'}}>
         <StyledPaper elevation={10}>
           {weatherData.properties ? <Current data={weatherData} /> : ''}
           {weatherData.properties ? <Forecast data={weatherData} /> : ''}
