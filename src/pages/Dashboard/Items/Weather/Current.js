@@ -62,14 +62,13 @@ const Current = (props) => {
     )
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setBetterData(result);
       })
       .catch((error) => console.log("error", error));
   }, []);
 
   if (
-    props.data.properties.periods[1].name === "Tonight" &&
+    // &&
     hourlyData.length > 0 &&
     betterData.current
   ) {
@@ -158,11 +157,23 @@ const Current = (props) => {
           </Box>
         </Box>
         <Box sx={{ display: "flex", flexDirection: "row", padding: '15px 0'}}>
-          {props.data.properties.periods.slice(0, 2).map((period, index) => {
+          {props.data.properties.periods[1].name === "Tonight" ? props.data.properties.periods.slice(0, 2).map((period, index) => {
             return (
               <Box key={index} sx={{ color: "white", padding: "0 2rem" }}>
                 <Typography sx={{ fontSize: "3rem" }}>
-                  {period.name} | {period.temperature}
+                  {period.name} | {period.temperature}°
+                </Typography>
+                <Typography>
+                  {period.windSpeed} {period.windDirection}
+                </Typography>
+                <Typography>{period.detailedForecast}</Typography>
+              </Box>
+            );
+          }) : props.data.properties.periods.slice(0, 1).map((period, index) => {
+            return (
+              <Box key={index} sx={{ color: "white", padding: "0 2rem", width: '100%'}}>
+                <Typography sx={{ fontSize: "3rem" }}>
+                  {period.name} | {period.temperature}°
                 </Typography>
                 <Typography>
                   {period.windSpeed} {period.windDirection}
@@ -175,7 +186,7 @@ const Current = (props) => {
       </StyledBox>
     );
   }
-  return <h1>yo</h1>;
+  return <h1>Loading...</h1>;
 };
 
 export default Current;
